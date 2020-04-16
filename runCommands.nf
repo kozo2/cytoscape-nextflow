@@ -1,15 +1,14 @@
 #!/usr/bin/env nextflow
 
 process runCyCommands {
-  container "quay.io/kozo2/cytoscape-nextflow"
 
-  input:
-  file "cyCommands.txt"                                          
+  container 'quay.io/kozo2/cytoscape-nextflow:latest'
+  containerOptions '-it'
 
-  output:
-  file "output.txt"
+  input: file "cyCommands.txt"                                          
+  output: file "output.txt"
 
   """
-  /cytoscape-unix-3.7.2/cytoscape.sh --script cyCommands.txt
+  ls /
   """
 }
