@@ -1,0 +1,1 @@
+apps install app="assembly"
